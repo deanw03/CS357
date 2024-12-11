@@ -1,0 +1,53 @@
+option-trace=true;
+
+graph lab10{
+   
+  abstract start node S{}
+  abstract final node A{}
+  abstract final node B{}
+  abstract final node C{}
+  abstract final node D{}
+  abstract final node E{}
+  abstract final node F{}
+  abstract final node G{}
+  abstract final node H{}
+  abstract final node I{}
+  abstract final node J{}
+   
+  edge {S-> +}
+  edge{A<-> B,F,C}
+  edge {B<-> A,G,D}
+  edge{C<-> A,H,E}
+  edge { D<-> B,E,I}
+  edge {E<-> D,J,C}
+  edge{F<-> A,I,J}
+  edge {G<->B,H,J}
+  edge{H<->C,G,I}
+  edge{I<-> F,H,D}
+  edge{J<-> F,E,G}
+
+   goal{
+        // each node must appear exactly once.
+  
+
+
+        let condition1 = (>>(S->A) && <<(_->A)) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition2 = (>>(S->B) && <<(_->B)) && (A^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition3 = (>>(S->C) && <<(_->C)) && (B^{1} && A^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition4 = (>>(S->D) && <<(_->D)) && (B^{1} && C^{1} && A^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition5 = (>>(S->E) && <<(_->E)) && (B^{1} && C^{1} && D^{1} && A^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition6 = (>>(S->F) && <<(_->F)) && (B^{1} && C^{1} && D^{1} && E^{1} && A^{1} && G^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition7 = (>>(S->G) && <<(_->G)) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && A^{1} &&  H^{1} && I^{1} && J^{1}); 
+        let condition8 = (>>(S->H) && <<(_->H)) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  A^{1} && I^{1} && J^{1}); 
+        let condition9 = (>>(S->I) && <<(_->I)) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && A^{1} && J^{1}); 
+        let condition10 = (>>(S->J) && <<(_->J)) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && A^{1}); 
+
+                
+        //check for 11 condition(condition1||condition2||condition3||condition4||condition5||condition6||condition7||condition8||condition9||condition10)
+        let h = >>(S->A) && (B^{1} && C^{1} && D^{1} && E^{1} && F^{1} && G^{1} &&  H^{1} && I^{1} && J^{1});
+         check for 10 condition(h)
+    }
+
+ 
+
+}
